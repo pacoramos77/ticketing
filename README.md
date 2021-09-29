@@ -28,4 +28,9 @@ https://www.udemy.com/course/microservices-with-node-js-and-react
 | /api/users/currentuser | GET      | -                                   | Return info about the user |
 
 
+gcloud init
+gcloud container clusters get-credentials ticketing-dev
+gcloud auth application-default login
+
+
 
