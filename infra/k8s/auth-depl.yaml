@@ -14,7 +14,13 @@ spec:
     spec:
       containers:
         - name: auth
-          image:  pacor2010/auth
+          image: pacor2010/auth
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service

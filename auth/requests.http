@@ -1,5 +1,5 @@
 # 127.0.0.1 redirected to posts.com in etc/hosts file
-@url = http://ticketing.com
+@url = https://ticketing.com
 
 # api/users
 
