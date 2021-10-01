@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { body, validationResult } from "express-validator";
+import { body } from "express-validator";
 import jwt from "jsonwebtoken";
 
 import { User } from "../models/user";
@@ -49,7 +49,7 @@ router.post(
       jwt: userJwt,
     };
 
-    res.status(201).send(existingUser);
+    res.status(200).send(existingUser);
   }
 );
 
