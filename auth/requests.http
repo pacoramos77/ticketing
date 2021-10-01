@@ -1,12 +1,12 @@
 # 127.0.0.1 redirected to posts.com in etc/hosts file
 @url = https://ticketing.com
 
-# api/users
-
+# currentuser
 GET {{url}}/api/users/currentuser
 Content-Type: application/json
 ###
 
+# signup
 POST {{url}}/api/users/signup
 Content-Type: application/json
 
@@ -14,4 +14,19 @@ Content-Type: application/json
   "email": "email@email.com",
   "password": "my-password"
 }
+###
+
+# signin
+POST {{url}}/api/users/signin
+Content-Type: application/json
+
+{
+  "email": "email@email.com",
+  "password": "my-password"
+}
+###
+
+# signout
+POST {{url}}/api/users/signout
+Content-Type: application/json
 ###
