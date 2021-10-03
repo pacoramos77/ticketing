@@ -4,6 +4,12 @@ This is the second exercise in the microservices course.
 
 https://www.udemy.com/course/microservices-with-node-js-and-react
 
+
+***Creating secret***
+```
+kubectl create secret generic jwt-secret --from-literal=JWT_KEY=asdf
+```
+
 **Services**
 - *auth*: Everything related to user dignup/signin/signout
 - *tickets*: Ticket creation/editin. Knows whether a ticket can be updated
@@ -18,8 +24,7 @@ https://www.udemy.com/course/microservices-with-node-js-and-react
 - TicketCreated, TicketUpdated
 - ChargeCreated
 
-***Auth***
-
+***Auth service***
 | *Route*                | *Method* | *Body*                              | *Purpose*              |
 |------------------------|----------|-------------------------------------|------------------------|
 | /api/users/signup      | POST     | { email: string, password: string } | Sign up for an account |
@@ -27,8 +32,10 @@ https://www.udemy.com/course/microservices-with-node-js-and-react
 | /api/users/signout     | POST     | {}                                  | Sign out                |
 | /api/users/currentuser | GET      | -                                   | Return info about the user |
 
-
-***Creating secret***
-```
-kubectl create secret generic jwt-secret --from-literal=JWT_KEY=asdf
-```
+***Tickets service***
+| *Route*                | *Method* | *Body*                              | *Purpose*              |
+|------------------------|----------|-------------------------------------|------------------------|
+| /api/tickets           | GET      | -                                   | Retrieve all tickets   |
+| /api/tickets/:id       | GET      | -                                   | Retrieve ticket with specific ID |
+| /api/tickets           | POST     | { title: string, price: string }    | Create a ticket          |
+| /api/tickets           | PUT      | { title: string, price: string }    | Update a ticket          |
