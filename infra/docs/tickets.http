@@ -1,0 +1,35 @@
+# 127.0.0.1 redirected to posts.com in etc/hosts file
+@url = https://ticketing.com
+
+# get all tickets
+GET {{url}}/api/tickets
+Content-Type: application/json
+###
+
+
+# create a ticket
+POST {{url}}/api/tickets
+Content-Type: application/json
+
+{
+  "title": "my ticket",
+  "price": 50.5
+}
+###
+
+
+# get one
+GET {{url}}/api/tickets/6159b4d8b92b3f151190df55
+Content-Type: application/json
+###
+
+
+# update a ticket
+PUT {{url}}/api/tickets/6159b4d8b92b3f151190df55
+Content-Type: application/json
+
+{
+  "title": "my ticket changed.",
+  "price": 150.5
+}
+###
