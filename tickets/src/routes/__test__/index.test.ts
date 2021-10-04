@@ -1,7 +1,6 @@
 import request from "supertest";
 
 import { app } from "../../app";
-import { Ticket } from "../../models/ticket";
 
 const creaateTicket = () => {
   return request(app).post("/api/tickets").set("Cookie", global.signin()).send({
