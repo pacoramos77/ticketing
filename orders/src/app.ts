@@ -3,10 +3,10 @@ import "express-async-errors";
 import cookieSession from "cookie-session";
 import { errorHandler, NotFoundError, currentUser } from "@frc-tickets/common";
 
-// import { createTicketRouter } from "./routes/new";
-// import { showTicketRouter } from "./routes/show";
-// import { updateTicketRouter } from "./routes/update";
-// import { indexTicketsRouter } from "./routes";
+import { indexOrderRouter } from "./routes";
+import { createOrderRouter } from "./routes/new";
+import { showOrderRouter } from "./routes/show";
+import { deleteOrderRouter } from "./routes/delete";
 
 const app = express();
 app.set("trust proxy", true);
@@ -20,10 +20,10 @@ app.use(
 );
 app.use(currentUser);
 
-// app.use(indexTicketsRouter);
-// app.use(showTicketRouter);
-// app.use(createTicketRouter);
-// app.use(updateTicketRouter);
+app.use(indexOrderRouter);
+app.use(createOrderRouter);
+app.use(showOrderRouter);
+app.use(deleteOrderRouter);
 
 app.all("*", async () => {
   throw new NotFoundError();
