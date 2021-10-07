@@ -19,13 +19,13 @@ Content-Type: application/json
 
 
 # get one
-GET {{url}}/api/tickets/615ad8006d0c26c1e154b7df
+GET {{url}}/api/tickets/6159b4d8b92b3f151190df55
 Content-Type: application/json
 ###
 
 
 # update a ticket
-PUT {{url}}/api/tickets/615ad8006d0c26c1e154b7df
+PUT {{url}}/api/tickets/6159b4d8b92b3f151190df55
 Content-Type: application/json
 
 {

@@ -1,0 +1,29 @@
+# 127.0.0.1 redirected to posts.com in etc/hosts file
+@url = https://ticketing.com
+
+# get all orders
+GET {{url}}/api/orders
+Content-Type: application/json
+###
+
+
+# create a order
+POST {{url}}/api/orders
+Content-Type: application/json
+
+{
+  "ticketId": "615b29ef762ed28f90ccfbb1"
+}
+###
+
+
+# get one
+GET {{url}}/api/orders/615ad8006d0c26c1e154b7df
+Content-Type: application/json
+###
+
+
+# delete a ticket
+DELETE {{url}}/api/orders/615ad8006d0c26c1e154b7df
+Content-Type: application/json
+###
