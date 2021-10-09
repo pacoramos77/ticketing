@@ -6,6 +6,7 @@ const cookie =
   "express:sess=eyJqd3QiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJall4TldZd1pXUmhPRFU0T0RSak9ERTVZakptTVdZNU15SXNJbVZ0WVdsc0lqb2laVzFoYVd4QVpXMWhhV3d1WTI5dElpd2lhV0YwSWpveE5qTXpOakl3T1RnNGZRLmEtdVQ5SnVHSVBoX2hxY2xFMlRLamRBZ0t6X2o0MlJsdUNBVzdLcVdZUkkifQ==; path=/; secure; httponly";
 
 const doRequest = async (number) => {
+  console.log(`process ${number}`);
   console.time(`process ${number}`);
 
   const { data } = await axios.post(
@@ -28,5 +29,8 @@ const doRequest = async (number) => {
   console.timeEnd(`process ${number}`);
 };
 
-const range = Array.from({ length: 200 }, (v, k) => k + 1);
-Promise.all(range.map((n) => doRequest(n)));
+(() => {
+  for (let i = 0; i < 10; i++) {
+    doRequest(i);
+  }
+})();

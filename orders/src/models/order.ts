@@ -13,6 +13,7 @@ interface OrderAttrs {
 
 interface OrderDoc extends mongoose.Document {
   userId: string;
+  version: number;
   status: OrderStatus;
   expiresAt: Date;
   ticket: TicketDoc;
@@ -52,14 +53,6 @@ const orderSchema = new mongoose.Schema(
     },
   }
 );
-
-// orderSchema.pre("save", async function (done) {
-//   // if (this.isModified("password")) {
-//   //   const hashed = await Password.toHash(this.get("password"));
-//   //   this.set("password", hashed);
-//   // }
-//   done();
-// });
 
 orderSchema.statics.build = (attrs: OrderAttrs) => {
   return new Order(attrs);
