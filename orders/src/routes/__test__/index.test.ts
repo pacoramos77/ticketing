@@ -1,12 +1,15 @@
 import request from "supertest";
 import mongoose from "mongoose";
 import { app } from "../../app";
-import { Ticket, TicketDoc } from "../../models/ticket";
-import { Order, OrderStatus } from "../../models/order";
-import { natsWrapper } from "../../nats-wrapper";
+import { Ticket } from "../../models/ticket";
 
 const buildTicket = async () => {
-  const ticket = Ticket.build({ title: "concert", price: 25 });
+  const ticket = Ticket.build({
+    id: new mongoose.Types.ObjectId().toHexString(),
+    version: 0,
+    title: "concert",
+    price: 25,
+  });
   await ticket.save();
   return ticket;
 };

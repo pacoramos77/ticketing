@@ -17,7 +17,12 @@ it("returns an error if one user tries to delete another users order", async () 
   const user = global.signin();
 
   // Create a ticket
-  const ticket = Ticket.build({ title: "concert", price: 25 });
+  const ticket = Ticket.build({
+    id: new mongoose.Types.ObjectId().toHexString(),
+    version: 0,
+    title: "concert",
+    price: 25,
+  });
   await ticket.save();
 
   // make a request to build an order with this ticket
@@ -39,7 +44,12 @@ it("marks an order as cancelled", async () => {
   const user = global.signin();
 
   // Create a ticket
-  const ticket = Ticket.build({ title: "concert", price: 25 });
+  const ticket = Ticket.build({
+    id: new mongoose.Types.ObjectId().toHexString(),
+    version: 0,
+    title: "concert",
+    price: 25,
+  });
   await ticket.save();
 
   // make a request to build an order with this ticket
@@ -65,7 +75,12 @@ it("emits an order cancelled event", async () => {
   const user = global.signin();
 
   // Create a ticket
-  const ticket = Ticket.build({ title: "concert", price: 25 });
+  const ticket = Ticket.build({
+    id: new mongoose.Types.ObjectId().toHexString(),
+    version: 0,
+    title: "concert",
+    price: 25,
+  });
   await ticket.save();
 
   // make a request to build an order with this ticket

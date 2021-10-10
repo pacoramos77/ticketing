@@ -33,13 +33,13 @@ it("creates and saves a ticket", async () => {
 
   // write assertions to make sure a ticket was created!
   const ticket = await Ticket.findById(data.id);
-  console.log({ ticket, dataId: data.id });
+
   expect(ticket).toBeDefined();
   expect(ticket!.title).toEqual(data.title);
   expect(ticket!.price).toEqual(data.price);
 });
 
-it("ack the message", async () => {
+it("acks the message", async () => {
   const { listener, data, msg } = setup();
   // call the onMessage finction with the data object + message object
   await listener.onMessage(data, msg);

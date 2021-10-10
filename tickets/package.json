@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev src/index.ts",
+    "lint": "tsc --noEmit",
     "jest": "jest",
     "test": "jest --watchAll"
   },

@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { OrderStatus } from "@frc-tickets/common";
+import { updateIfCurrentPlugin } from "mongoose-update-if-current";
 import { TicketDoc } from "./ticket";
 
 export { OrderStatus };
@@ -47,13 +48,14 @@ const orderSchema = new mongoose.Schema(
     toJSON: {
       transform(doc, ret) {
         ret.id = ret._id;
-        // delete ret.__v;
         delete ret._id;
       },
     },
   }
 );
 
+orderSchema.set("versionKey", "version");
+orderSchema.plugin(updateIfCurrentPlugin);
 orderSchema.statics.build = (attrs: OrderAttrs) => {
   return new Order(attrs);
 };
