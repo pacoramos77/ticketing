@@ -22,11 +22,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@frc-tickets/common": "^1.0.12",
+    "@frc-tickets/common": "^1.0.14",
     "@types/bull": "^3.15.5",
     "bull": "^3.29.2",
     "ts-node-dev": "^1.1.8",
-    "jsonwebtoken": "^8.5.1",
     "typescript": "^4.4.3"
   },
   "devDependencies": {
