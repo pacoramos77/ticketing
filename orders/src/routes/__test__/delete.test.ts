@@ -4,6 +4,7 @@ import { app } from "../../app";
 import { Ticket } from "../../models/ticket";
 import { Order, OrderStatus } from "../../models/order";
 import { natsWrapper } from "../../nats-wrapper";
+import { Subjects } from "@frc-tickets/common";
 
 it("returns an error if one user tries to delete a not found order", async () => {
   await request(app)
@@ -69,6 +70,7 @@ it("marks an order as cancelled", async () => {
   const updatedOrder = await Order.findById(order.id);
 
   expect(updatedOrder!.status).toEqual(OrderStatus.Cancelled);
+  expect(updatedOrder!.version).toEqual(1);
 });
 
 it("emits an order cancelled event", async () => {
@@ -90,6 +92,7 @@ it("emits an order cancelled event", async () => {
     .send({ ticketId: ticket.id })
     .expect(201);
 
+  (natsWrapper.client.publish as jest.Mock).mockClear();
   // make request to fetch the order
   await request(app)
     .delete(`/api/orders/${order.id}`)
@@ -98,4 +101,10 @@ it("emits an order cancelled event", async () => {
     .expect(204);
 
   expect(natsWrapper.client.publish).toHaveBeenCalled();
+  const eventName = (natsWrapper.client.publish as jest.Mock).mock.calls[0][0];
+  const eventData = JSON.parse(
+    (natsWrapper.client.publish as jest.Mock).mock.calls[0][1]
+  );
+  expect(eventName).toEqual(Subjects.OrderCancelled);
+  expect(eventData.version).toEqual(1);
 });

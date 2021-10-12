@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { OrderStatus } from "@frc-tickets/common";
 import { updateIfCurrentPlugin } from "mongoose-update-if-current";
+
 import { TicketDoc } from "./ticket";
 
 export { OrderStatus };

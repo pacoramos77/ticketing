@@ -15,10 +15,7 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
       price: data.ticket.price,
       status: data.status,
     });
-    console.log(data, order);
     await order.save();
-
-    console.log("done");
 
     msg.ack();
   }
