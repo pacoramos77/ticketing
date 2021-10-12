@@ -1,0 +1,14 @@
+# 127.0.0.1 redirected to posts.com in etc/hosts file
+@url = https://ticketing.com
+
+
+# create a payment
+POST {{url}}/api/payments
+Content-Type: application/json
+
+{
+  "token": "token1234",
+  "orderId": "6165d5c6aec54e142039b25a"
+}
+###
+

@@ -12,7 +12,7 @@ POST {{url}}/api/orders
 Content-Type: application/json
 
 {
-  "ticketId": "61658966449c54c2658873e8"
+  "ticketId": "6165d5bcd9d8b0bfcb69dd97"
 }
 ###
 
