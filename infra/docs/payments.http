@@ -7,8 +7,8 @@ POST {{url}}/api/payments
 Content-Type: application/json
 
 {
-  "token": "token1234",
-  "orderId": "6165d5c6aec54e142039b25a"
+  "token": "tok_visa",
+  "orderId": "6165f99a3e62887242bcf437"
 }
 ###
 

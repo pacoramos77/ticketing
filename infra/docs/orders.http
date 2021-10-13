@@ -12,18 +12,18 @@ POST {{url}}/api/orders
 Content-Type: application/json
 
 {
-  "ticketId": "6165d5bcd9d8b0bfcb69dd97"
+  "ticketId": "6165f78400ffe062521e60f6"
 }
 ###
 
 
 # get one
-GET {{url}}/api/orders/616589e76f970eef787becf8
+GET {{url}}/api/orders/6165f78f3e62887242bcf41d
 Content-Type: application/json
 ###
 
 
 # delete a ticket
-DELETE {{url}}/api/orders/616589726f970eef787bece6
+DELETE {{url}}/api/orders/6165f78f3e62887242bcf41d
 Content-Type: application/json
 ###
