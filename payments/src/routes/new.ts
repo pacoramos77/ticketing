@@ -14,7 +14,6 @@ import { Payment } from "../models/payments";
 import { natsWrapper } from "../nats-wrapper";
 import { PaymentCreatedPublisher } from "../events/publishers/payment-created-publisher";
 
-
 const router = express.Router();
 
 router.post(
@@ -40,14 +39,14 @@ router.post(
     }
 
     const charge = await stripe.charges.create({
-      currency: 'eur',
+      currency: "eur",
       amount: order.price * 100,
-      source: token
+      source: token,
     });
     const payment = Payment.build({
       orderId,
-      stripeId: charge.id
-    })
+      stripeId: charge.id,
+    });
     await payment.save();
 
     await new PaymentCreatedPublisher(natsWrapper.client).publish({
