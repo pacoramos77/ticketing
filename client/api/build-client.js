@@ -2,6 +2,7 @@ import axios from "axios";
 
 export default function buildClient({ req }) {
   const isServerSide = typeof window === "undefined";
+
   if (isServerSide) {
     return axios.create({
       baseURL:
