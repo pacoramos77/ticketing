@@ -13,8 +13,9 @@ spec:
         app: expiration-redis
     spec:
       containers:
-      - name: expiration-redis
-        image: redis
+        - name: expiration-redis
+          image: redis
+          imagePullPolicy: IfNotPresent
 ---
 apiVersion: v1
 kind: Service
@@ -24,7 +25,7 @@ spec:
   selector:
     app: expiration-redis
   ports:
-  - name: db
-    protocol: TCP
-    port: 6379
-    targetPort: 6379
+    - name: db
+      protocol: TCP
+      port: 6379
+      targetPort: 6379

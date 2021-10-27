@@ -15,9 +15,10 @@ spec:
       containers:
         - name: expiration
           image: pacor2010/expiration
+          imagePullPolicy: IfNotPresent
           env:
             - name: NATS_CLIENT_ID
-              valueFrom: 
+              valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
             - name: NATS_URL
@@ -26,4 +27,3 @@ spec:
               value: ticketing
             - name: REDIS_HOST
               value: expiration-redis-srv
-

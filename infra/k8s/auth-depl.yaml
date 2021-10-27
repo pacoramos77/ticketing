@@ -15,6 +15,7 @@ spec:
       containers:
         - name: auth
           image: pacor2010/auth
+          imagePullPolicy: IfNotPresent
           env:
             - name: MONGO_URI
               value: mongodb://auth-mongo-srv:27017/auth
@@ -32,7 +33,7 @@ spec:
   selector:
     app: auth
   ports:
-  - name: auth
-    protocol: TCP
-    port: 3000
-    targetPort: 3000
+    - name: auth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

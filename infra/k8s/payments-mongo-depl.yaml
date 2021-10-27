@@ -13,8 +13,9 @@ spec:
         app: payments-mongo
     spec:
       containers:
-      - name: payments-mongo
-        image: mongo
+        - name: payments-mongo
+          image: mongo
+          imagePullPolicy: IfNotPresent
 ---
 apiVersion: v1
 kind: Service
@@ -24,7 +25,7 @@ spec:
   selector:
     app: payments-mongo
   ports:
-  - name: db
-    protocol: TCP
-    port: 27017
-    targetPort: 27017
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

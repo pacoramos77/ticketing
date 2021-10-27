@@ -15,9 +15,10 @@ spec:
       containers:
         - name: payments
           image: pacor2010/payments
+          imagePullPolicy: IfNotPresent
           env:
             - name: NATS_CLIENT_ID
-              valueFrom: 
+              valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
             - name: NATS_URL
@@ -45,7 +46,7 @@ spec:
   selector:
     app: payments
   ports:
-  - name: payments
-    protocol: TCP
-    port: 3000
-    targetPort: 3000
+    - name: payments
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

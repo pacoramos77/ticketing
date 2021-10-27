@@ -13,8 +13,9 @@ spec:
         app: orders-mongo
     spec:
       containers:
-      - name: orders-mongo
-        image: mongo
+        - name: orders-mongo
+          image: mongo
+          imagePullPolicy: IfNotPresent
 ---
 apiVersion: v1
 kind: Service
@@ -24,7 +25,7 @@ spec:
   selector:
     app: orders-mongo
   ports:
-  - name: db
-    protocol: TCP
-    port: 27017
-    targetPort: 27017
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

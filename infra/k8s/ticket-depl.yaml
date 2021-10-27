@@ -15,9 +15,10 @@ spec:
       containers:
         - name: tickets
           image: pacor2010/tickets
+          imagePullPolicy: IfNotPresent
           env:
             - name: NATS_CLIENT_ID
-              valueFrom: 
+              valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
             - name: NATS_URL
@@ -40,7 +41,7 @@ spec:
   selector:
     app: tickets
   ports:
-  - name: tickets
-    protocol: TCP
-    port: 3000
-    targetPort: 3000
+    - name: tickets
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
