@@ -12,7 +12,7 @@ const NewTicket = () => {
       title,
       price,
     },
-    onSuccess: (ticket) => Router.push("/"),
+    onSuccess: () => Router.push("/"),
   });
 
   const onSubmit = (event) => {

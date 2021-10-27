@@ -5,11 +5,23 @@ This is the second exercise in the microservices course.
 https://www.udemy.com/course/microservices-with-node-js-and-react
 
 
-***Creating secrets***
-```
+***Before start***
+Install nginx ingress in your local k8s environment. See [ingress-nginx](https://kubernetes.github.io/ingress-nginx/deploy/)
+
+Create secrets
+```shell
+# Create JWT secret
 kubectl create secret generic jwt-secret --from-literal=JWT_KEY=asdf
+# Create Stripe PRIVATE secret key
 kubectl create secret generic stripe-secret --from-literal STRIPE_KEY=sk_test_asdf...
 ```
+
+***Build and run all containers with [Skaffold](https://skaffold.dev/)***
+```shell
+skaffold run
+```
+
+
 
 **Services**
 - *auth*: Everything related to user dignup/signin/signout

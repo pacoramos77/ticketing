@@ -3,13 +3,15 @@ import axios from "axios";
 function useRequest({ url, method, body, onSuccess }) {
   const [errors, setErrors] = useState(null);
 
-  const doRequest = async () => {
+  const doRequest = async (props = {}) => {
     try {
       setErrors(null);
-      const response = await axios[method](url, body);
+      const response = await axios[method](url, { ...body, ...props });
       onSuccess && onSuccess(response.data);
       return response.data;
     } catch (err) {
+      console.log(err.message);
+      debugger;
       const errors = err.response.data.errors;
 
       setErrors(
