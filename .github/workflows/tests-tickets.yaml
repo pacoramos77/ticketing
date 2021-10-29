@@ -1,4 +1,4 @@
-name: test-tickets
+name: tests-tickets
 
 on:
   pull_request
