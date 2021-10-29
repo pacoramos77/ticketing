@@ -6,8 +6,8 @@
   "scripts": {
     "start": "ts-node-dev src/index.ts",
     "lint": "tsc --noEmit --extendedDiagnostics",
-    "jest": "jest",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll --no-cache",
+    "test:ci": "jest --ci"
   },
   "jest": {
     "transform": {
