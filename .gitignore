@@ -3,3 +3,6 @@ node_modules
 .vscode
 client/.next
 **/*.tsbuildinfo
+
+package-lock.json
+**/package-lock.json
