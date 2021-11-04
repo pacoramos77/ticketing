@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev src/index.ts",
-    "jest": "jest",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll --no-cache",
+    "test:ci": "jest --ci"
   },
   "jest": {
     "transform": {

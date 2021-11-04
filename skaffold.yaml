@@ -14,7 +14,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
+          - src: src/**/*.ts
             dest: .
     - image: pacor2010/client
       context: client
@@ -22,7 +22,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '**/*.js'
+          - src: "**/*.js"
             dest: .
     - image: pacor2010/tickets
       context: tickets
@@ -30,7 +30,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
+          - src: src/**/*.ts
             dest: .
     - image: pacor2010/orders
       context: orders
@@ -38,7 +38,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
+          - src: src/**/*.ts
             dest: .
     - image: pacor2010/expiration
       context: expiration
@@ -46,7 +46,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
+          - src: src/**/*.ts
             dest: .
     - image: pacor2010/payments
       context: payments
@@ -54,5 +54,5 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
+          - src: src/**/*.ts
             dest: .
