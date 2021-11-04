@@ -4,9 +4,13 @@ export default function buildClient({ req }) {
   const isServerSide = typeof window === "undefined";
 
   if (isServerSide) {
+    const isLocalDev = false; //process.env.NODE_ENV === "development";
+    const baseURL = isLocalDev
+      ? "http://ingress-nginx-controller.ingress-nginx.svc.cluster.local"
+      : "http://my-tickets.shop";
+
     return axios.create({
-      baseURL:
-        "http://ingress-nginx-controller.ingress-nginx.svc.cluster.local",
+      baseURL,
       headers: req.headers,
     });
   }
