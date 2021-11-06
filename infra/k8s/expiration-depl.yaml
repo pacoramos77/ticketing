@@ -15,7 +15,7 @@ spec:
       containers:
         - name: expiration
           image: pacor2010/expiration
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: NATS_CLIENT_ID
               valueFrom:

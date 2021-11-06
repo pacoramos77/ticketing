@@ -6,3 +6,7 @@ client/.next
 
 package-lock.json
 **/package-lock.json
+
+
+# Ignore DevSpace cache and log folder
+.devspace/

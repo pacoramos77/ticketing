@@ -15,7 +15,7 @@ spec:
       containers:
         - name: auth
           image: pacor2010/auth
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: MONGO_URI
               value: mongodb://auth-mongo-srv:27017/auth

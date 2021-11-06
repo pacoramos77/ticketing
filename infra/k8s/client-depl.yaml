@@ -15,7 +15,7 @@ spec:
       containers:
         - name: client
           image: pacor2010/client
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service

@@ -15,7 +15,7 @@ spec:
       containers:
         - name: payments
           image: pacor2010/payments
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: NATS_CLIENT_ID
               valueFrom:

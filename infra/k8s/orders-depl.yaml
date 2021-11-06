@@ -15,7 +15,7 @@ spec:
       containers:
         - name: orders
           image: pacor2010/orders
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: NATS_CLIENT_ID
               valueFrom:

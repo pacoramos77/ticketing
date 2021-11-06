@@ -15,7 +15,7 @@ spec:
       containers:
         - name: tickets
           image: pacor2010/tickets
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
