@@ -2,12 +2,13 @@ apiVersion: skaffold/v2beta23
 kind: Config
 deploy:
   kubectl:
+    defaultNamespace: default
     manifests:
       - ./infra/k8s/*
       - ./infra/k8s-dev/*
 build:
   local:
-    push: false
+    push: true
   artifacts:
     - image: pacor2010/auth
       context: auth
